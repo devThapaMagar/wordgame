@@ -4,7 +4,8 @@ import Nav from '../components/Nav';
 import PostCard from '../components/PostCard';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ posts }) {debugger;
+export default function Home({ posts }) {
+    debugger;
     return (
         <div>
             <Head>
@@ -36,8 +37,10 @@ export async function getServerSideProps(ctx) {
     let dev = process.env.NODE_ENV !== 'production';
     let { DEV_URL, PROD_URL } = process.env;
 
+    const server = dev ? DEV_URL : PROD_URL;
+
     // request posts from api
-    let response = await fetch(`http://localhost:3000/api/posts`);
+    let response = await fetch(`${server}/api/posts`);
     // extract the data
     let data = await response.json();
     return {
