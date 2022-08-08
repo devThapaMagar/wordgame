@@ -3,9 +3,8 @@ import Head from 'next/head';
 import Nav from '../components/Nav';
 import PostCard from '../components/PostCard';
 import styles from '../styles/Home.module.css';
-
+import $ from "jquery"
 export default function Home({ posts }) {
-    debugger;
     return (
         <div>
             <Head>
@@ -16,8 +15,7 @@ export default function Home({ posts }) {
             <Nav />
 
             <main>
-                <div className={styles.container}>
-                    {posts.length === 0 ? (
+                <div className={styles.container}>{posts.length === 0 ? (
                         <h2>No added posts</h2>
                     ) : (
                         <ul>
